@@ -18,3 +18,5 @@ require("channels")
 require('bootstrap')
 import 'bootstrap/dist/css/bootstrap'
 import "@fortawesome/fontawesome-free/css/all"
+require("trix")
+require("@rails/actiontext")
