@@ -33,3 +33,4 @@ end
 
 
 gem 'simple_form'
+gem 'devise'
