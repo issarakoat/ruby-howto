@@ -70,7 +70,7 @@ class HowtodosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_howtodo
-      @howtodo = Howtodo.find(params[:id])
+      @howtodo = Howtodo.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

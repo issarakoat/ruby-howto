@@ -9,6 +9,10 @@
   <strong>Description:</strong>
   <%= @howtodo.description %>
 </p>
+<p>
+  <strong>Create by:</strong>
+  <%= @howtodo.user.email %>
+</p>
 
 <%= link_to 'Edit', edit_howtodo_path(@howtodo) %> |
 <%= link_to 'Back', howtodos_path %>
