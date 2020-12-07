@@ -5,6 +5,11 @@ class HowtodosController < ApplicationController
   # GET /howtodos.json
   def index
     @howtodos = Howtodo.all
+    if params[:title]
+      @howtodos = Howtodo.where('title ILIKE ?', "%#{params[:title]}%") #case-insensitive
+    else
+      @howtodos = Howtodo.all
+    end
   end
 
   # GET /howtodos/1
