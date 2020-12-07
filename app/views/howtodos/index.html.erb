@@ -7,6 +7,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= howtodo.title %></td>
         <td><%= howtodo.description %></td>
+        <td><%= howtodo.user.email %></td>
         <td><%= link_to 'Show', howtodo %></td>
         <td><%= link_to 'Edit', edit_howtodo_path(howtodo) %></td>
         <td><%= link_to 'Destroy', howtodo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

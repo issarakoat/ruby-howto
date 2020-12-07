@@ -25,6 +25,7 @@ class HowtodosController < ApplicationController
   # POST /howtodos.json
   def create
     @howtodo = Howtodo.new(howtodo_params)
+    @howtodo.user = current_user
 
     respond_to do |format|
       if @howtodo.save
