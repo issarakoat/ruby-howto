@@ -1,7 +1,19 @@
 Rails.application.configure do
   config.hosts << "a0352e848db244f9876d933f8ea452ee.vfs.cloud9.us-east-2.amazonaws.com"
   config.action_mailer.default_url_options = { host: 'https://a0352e848db244f9876d933f8ea452ee.vfs.cloud9.us-east-2.amazonaws.com' }
-  config.action_mailer.delivery_method = :test
+  # config.action_mailer.delivery_method = :test
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   user_name:      ENV['weeravut.issarakoat@gmail.com'],
+  #   password:       ENV['Ilovemili1929'],
+  #   domain:         ENV['https://a0352e848db244f9876d933f8ea452ee.vfs.cloud9.us-east-2.amazonaws.com'],
+  #   address:       'smtp.gmail.com',
+  #   port:          '587',
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
