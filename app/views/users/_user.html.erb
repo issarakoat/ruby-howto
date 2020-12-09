@@ -25,6 +25,10 @@
     <%= user.last_sign_in_ip %>
   </div>
   <div class="card-footer">
-
-</div>
+    <% user.roles.each do |role| %>
+      <div class="badge badge-info">
+        <%= role.name %>
+      </div>
+    <% end %>
+  </div>
 </div>
