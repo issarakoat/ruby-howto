@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>Comment Content:</strong>
   <%= @comment.content %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @comment.user_id %>
+  <%= @comment.user.email %>
 </p>
 
 <p>
-  <strong>Howtodo:</strong>
-  <%= @comment.howtodo_id %>
+  <strong>Howtodo Title:</strong>
+  <%= @comment.howtodo.title %>
 </p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |

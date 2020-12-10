@@ -15,6 +15,7 @@ class HowtodosController < ApplicationController
   # GET /howtodos/1
   # GET /howtodos/1.json
   def show
+    @comments = Comment.all
   end
 
   # GET /howtodos/new
