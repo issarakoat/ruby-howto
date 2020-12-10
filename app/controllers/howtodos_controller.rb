@@ -24,6 +24,7 @@ class HowtodosController < ApplicationController
 
   # GET /howtodos/1/edit
   def edit
+    authorize @howtodo
   end
 
   # POST /howtodos
