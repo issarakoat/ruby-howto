@@ -27,8 +27,10 @@
         <td><%= howtodo.description %></td>
         <td><%= howtodo.user.email %></td>
         <td><%= link_to 'Show', howtodo %></td>
-        <td><%= link_to 'Edit', edit_howtodo_path(howtodo) %></td>
-        <td><%= link_to 'Destroy', howtodo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if policy(howtodo).edit? %>
+          <td><%= link_to 'Edit', edit_howtodo_path(howtodo) %></td>
+          <td><%= link_to 'Destroy', howtodo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
