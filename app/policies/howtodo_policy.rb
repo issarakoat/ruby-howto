@@ -5,7 +5,13 @@ class HowtodoPolicy < ApplicationPolicy
     end
   end
   def edit?
-    @user.has_role?:super 
-    @user.has_role?:admin 
+    @user.has_role?(:super) || @record.user_id == @user.id
+  end
+  def update?
+    @user.has_role?(:super) || @record.user_id == @user.id
+  end
+
+  def destroy?
+    @user.has_role?(:super) || @record.user_id == @user.id
   end
 end

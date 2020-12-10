@@ -47,6 +47,7 @@ class HowtodosController < ApplicationController
   # PATCH/PUT /howtodos/1
   # PATCH/PUT /howtodos/1.json
   def update
+    authorize @howtodo
     respond_to do |format|
       if @howtodo.update(howtodo_params)
         format.html { redirect_to @howtodo, notice: 'Howtodo was successfully updated.' }
@@ -61,6 +62,7 @@ class HowtodosController < ApplicationController
   # DELETE /howtodos/1
   # DELETE /howtodos/1.json
   def destroy
+    authorize @howtodo
     @howtodo.destroy
     respond_to do |format|
       format.html { redirect_to howtodos_url, notice: 'Howtodo was successfully destroyed.' }
