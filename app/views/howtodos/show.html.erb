@@ -13,9 +13,11 @@
   <strong>Create by:</strong>
   <%= @howtodo.user.email %>
 </p>
-<p>Comment count:</p>
-<%= @howtodo.comments.count %>
+<p>Comment count: <%= @howtodo.comments.count %></p>
+
 <br>
+
+<%= link_to 'Add comment', new_comment_path(howtodo_id: @howtodo.id) %>
 
 <p>Comments: </p>
 <% @comments.each do |comment| %>
