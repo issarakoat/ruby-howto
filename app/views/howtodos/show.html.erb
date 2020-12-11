@@ -17,7 +17,7 @@
 
 <br>
 
-<%= link_to 'Add comment', new_comment_path(howtodo_id: @howtodo.id) %>
+<%= link_to 'Add comment', new_howtodo_comment_path(howtodo_id: @howtodo.id) %>
 
 <p>Comments: </p>
 <% @comments.each do |comment| %>

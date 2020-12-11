@@ -15,5 +15,5 @@
   <%= @comment.howtodo.title %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Edit', edit_howtodo_comment_path(@howtodo, @comment) %> |
+<%= link_to 'Back', howtodo_comments_path(@howtodo) %>

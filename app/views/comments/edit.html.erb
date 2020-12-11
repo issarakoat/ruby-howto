@@ -2,5 +2,5 @@
 
 <%= render 'form', comment: @comment %>
 
-<%= link_to 'Show', @comment %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Show', howtodo_comment_path(@howtodo, @comment) %> |
+<%= link_to 'Back', howtodo_path(@comment.howtodo) %>

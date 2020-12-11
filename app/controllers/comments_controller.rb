@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+    @howtodo = Howtodo.friendly.find(params[:howtodo_id])
   end
 
   # GET /comments/1/edit
@@ -25,11 +26,13 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
+    @howtodo = Howtodo.friendly.find(params[:howtodo_id])
+    @comment.howtodo_id = @howtodo.id
     @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to howtodo_comment_path(@howtodo, @comment), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -43,7 +46,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to howtodo_comment_path(@howtodo, @comment), notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
@@ -57,7 +60,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to howtodos_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +68,7 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
+      @howtodo = Howtodo.friendly.find(params[:howtodo_id])
       @comment = Comment.find(params[:id])
     end
 

@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@comment) do |f| %>
+<%= simple_form_for([@howtodo, @comment]) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -7,7 +7,7 @@
     <%= f.rich_text_area :content %>
     <!--<%= f.association :user %>-->
     <!--<%= f.association :howtodo %>-->
-    <%= f.input :howtodo_id, input_html: {value: @comment.howtodo_id || params[:howtodo_id]}, as: :hidden %>
+    <!--<%= f.input :howtodo_id, input_html: {value: @comment.howtodo_id || params[:howtodo_id]}, as: :hidden %>-->
   </div>
 
   <div class="form-actions">
