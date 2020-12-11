@@ -23,10 +23,10 @@
   <tbody>
     <% @howtodos.each do |howtodo| %>
       <tr>
-        <td><%= howtodo.title %></td>
+        <td><%= link_to howtodo.title, howtodo %></td>
         <td><%= howtodo.description %></td>
         <td><%= howtodo.user.email %></td>
-        <td><%= link_to 'Show', howtodo %></td>
+        
         <% if policy(howtodo).edit? %>
           <td><%= link_to 'Edit', edit_howtodo_path(howtodo) %></td>
           <td><%= link_to 'Destroy', howtodo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -38,4 +38,3 @@
 
 <br>
 
-<%= link_to 'New Howtodo', new_howtodo_path %>

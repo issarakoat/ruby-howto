@@ -17,11 +17,11 @@
 <%= @howtodo.comments.count %>
 <br>
 
-<h3>Comments: </h3>
+<p>Comments: </p>
 <% @comments.each do |comment| %>
   <%= render 'comments/comment', comment: comment %>
 <% end %>
 
 <br>
-<%= link_to 'Edit', edit_howtodo_path(@howtodo) %> |
+<%= link_to 'Edit', edit_howtodo_path(@howtodo) if policy(@howtodo).edit? %> |
 <%= link_to 'Back', howtodos_path %>

@@ -1,3 +1,5 @@
 <%= comment.content %>
 <p>Created by:</p>
 <%= comment.user.email %>
+<%= link_to 'Edit', edit_comment_path(comment), class: 'btn btn-sm btn-warning' %>
+<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>

@@ -1,5 +1,6 @@
 class HowtodosController < ApplicationController
   before_action :set_howtodo, only: [:show, :edit, :update, :destroy]
+  # skip_before_action :authenticate_user!, only: [:index, :show]
 
   # GET /howtodos
   # GET /howtodos.json
@@ -15,7 +16,7 @@ class HowtodosController < ApplicationController
   # GET /howtodos/1
   # GET /howtodos/1.json
   def show
-    @comments = Comment.all
+    @comments = @howtodo.comments
   end
 
   # GET /howtodos/new
