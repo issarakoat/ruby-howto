@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     include PublicActivity::StoreController 
     include Pagy::Backend  
     include Pundit
+    
     protect_from_forgery
     after_action :user_activity
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

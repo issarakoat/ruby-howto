@@ -5,15 +5,16 @@ class HowtodosController < ApplicationController
   # GET /howtodos
   # GET /howtodos.json
   def index
-    @howtodos = Howtodo.all
-    # @pagy, @courses = pagy(@ransack_howtodos.result.includes(:user))
-    if params[:title]
-      @howtodos = Howtodo.where('title ILIKE ?', "%#{params[:title]}%") #case-insensitive
-    else
-      # @howtodos = Howtodo.all
-      @q = Howtodo.ransack(params[:q])
-      @howtodos = @q.result.includes(:user)
-    end
+    # @howtodos = Howtodo.all
+    # if params[:title]
+    #   @howtodos = Howtodo.where('title ILIKE ?', "%#{params[:title]}%") #case-insensitive
+    # else
+    #   # @howtodos = Howtodo.all
+    #   @q = Howtodo.ransack(params[:q])
+    #   @howtodos = @q.result.includes(:user)
+    # end
+    @ransack_howtodos = Howtodo.ransack(params[:howtodos_search], search_key: :howtodos_search)
+    @pagy, @howtodos = pagy(@ransack_howtodos.result.includes(:user))
   end
 
   # GET /howtodos/1
