@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :howtodos do
     resources :comments
+    resources :ratings
   end
   resources :users, only: [:index, :edit, :show, :update]
   root 'howtodos#index'

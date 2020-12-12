@@ -8,6 +8,7 @@ class Howtodo < ApplicationRecord
     
     belongs_to :user
     has_many :comments, dependent: :destroy
+    has_many :ratings, dependent: :destroy
     
     extend FriendlyId
     friendly_id :title, use: :slugged
