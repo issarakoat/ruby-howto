@@ -37,7 +37,7 @@ class HowtodosController < ApplicationController
 
     respond_to do |format|
       if @howtodo.save
-        format.html { redirect_to @howtodo, notice: 'Howtodo was successfully created.' }
+        format.html { redirect_to howtodos_path, notice: 'Howtodo was successfully created.' }
         format.json { render :show, status: :created, location: @howtodo }
       else
         format.html { render :new }

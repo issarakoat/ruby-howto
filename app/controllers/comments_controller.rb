@@ -44,6 +44,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    authorize @comment
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to howtodo_path(@howtodo), notice: 'Comment was successfully updated.' }
@@ -58,6 +59,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    authorize @comment
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to howtodo_path(@howtodo) }
