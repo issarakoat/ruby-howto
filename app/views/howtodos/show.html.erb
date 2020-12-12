@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% content_for :title do %>
+  Howto 
+  | 
+  <%= @howtodo.title %>
+<% end %>
+
+
 <p>
   <strong>Title:</strong>
   <%= @howtodo.title %>
