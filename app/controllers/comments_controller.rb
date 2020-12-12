@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to howtodo_comment_path(@howtodo, @comment), notice: 'Comment was successfully created.' }
+        format.html { redirect_to howtodo_path(@howtodo) }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to howtodo_comment_path(@howtodo, @comment), notice: 'Comment was successfully updated.' }
+        format.html { redirect_to howtodo_path(@howtodo), notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to howtodos_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to howtodo_path(@howtodo) }
       format.json { head :no_content }
     end
   end
