@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :authenticate_user!
     # before_action :setContext, only: [:show, :edit]
     include PublicActivity::StoreController 
+    include Pagy::Backend  
     include Pundit
     protect_from_forgery
     after_action :user_activity

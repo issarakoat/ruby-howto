@@ -38,3 +38,5 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'public_activity'
 gem "rolify"
 gem "pundit"
+gem 'pagy'
+gem 'ransack'

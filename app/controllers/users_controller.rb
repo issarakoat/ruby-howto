@@ -2,11 +2,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   
   def index
-    if current_user.has_role?(:super) | current_user.has_role?(:admin)
-      @users = User.all.order(created_at: :desc)
-    else
-      redirect_to root_path, alert: 'You do not have access'
-    end 
+    # if current_user.has_role?(:super) | current_user.has_role?(:admin)
+    #   @users = User.all.order(created_at: :desc)
+    # else
+    #   redirect_to root_path, alert: 'You do not have access'
+    # end 
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
   
   def show
