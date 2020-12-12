@@ -1,5 +1,13 @@
-<h1>New Howtodo</h1>
-
-<%= render 'form', howtodo: @howtodo %>
-
-<%= link_to 'Back', howtodos_path %>
+<div class="card">
+  <div class="card-header">
+    <h1>Create Howtodo</h1>
+  </div>
+  <div class="card-body">
+    <%= render 'form' %>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Show', @howtodo %>
+    |
+    <%= link_to 'Back', howtodos_path %>
+  </div>
+</div>

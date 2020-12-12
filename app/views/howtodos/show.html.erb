@@ -13,17 +13,16 @@
   <strong>Create by:</strong>
   <%= @howtodo.user.email %>
 </p>
+<%= link_to 'Edit |', edit_howtodo_path(@howtodo) if policy(@howtodo).edit? %> 
+<%= link_to 'Back', howtodos_path %>
 <p>Comment count: <%= @howtodo.comments.count %></p>
 
 <br>
 
 <%= link_to 'Add comment', new_howtodo_comment_path(howtodo_id: @howtodo.id), class: 'btn btn-primary' %>
-
 <p>Comments: </p>
 <% @comments.each do |comment| %>
   <%= render 'comments/comment', comment: comment %>
 <% end %>
 
-<br>
-<%= link_to 'Edit', edit_howtodo_path(@howtodo) if policy(@howtodo).edit? %> |
-<%= link_to 'Back', howtodos_path %>
+

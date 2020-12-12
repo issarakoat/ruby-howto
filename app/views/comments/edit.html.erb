@@ -1,6 +1,12 @@
-<h1>Editing Comment</h1>
-
-<%= render 'form', comment: @comment %>
-
-<%= link_to 'Show', howtodo_comment_path(@howtodo, @comment) %> |
-<%= link_to 'Back', howtodo_path(@comment.howtodo) %>
+<div class="card">
+  <div class="card-header">
+    <h1>Update Comment</h1>
+  </div>
+  <div class="card-body">
+    <%= render 'form', comment: @comment %>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Show', howtodo_comment_path(@howtodo, @comment) %> |
+    <%= link_to 'Back', howtodo_path(@comment.howtodo) %>
+  </div>
+</div>
