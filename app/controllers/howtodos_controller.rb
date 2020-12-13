@@ -21,6 +21,7 @@ class HowtodosController < ApplicationController
   # GET /howtodos/1.json
   def show
     @comments = @howtodo.comments
+    @ratings  = @howtodo.ratings
   end
 
   # GET /howtodos/new
