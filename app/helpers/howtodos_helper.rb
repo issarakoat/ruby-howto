@@ -4,11 +4,9 @@ module HowtodosHelper
     user_howtodo = howtodo.ratings.where(user: current_user)
     if current_user
       if user_howtodo.any?
-        if user_howtodo.pending_rating.any?
-            link_to 'Add rating scope after if thing', new_howtodo_rating_path(howtodo_id: @howtodo.id), class: 'btn btn-primary'
-        else
-            link_to 'Thanks for reviewing! Your Review', howtodo_path(howtodo)
-        end
+        link_to 'Thanks for reviewing! Your Review', howtodo_path(howtodo)
+      else
+        link_to 'Add rating scope after if thing', new_howtodo_rating_path(howtodo_id: @howtodo.id), class: 'btn btn-primary'
       end
     end
   end

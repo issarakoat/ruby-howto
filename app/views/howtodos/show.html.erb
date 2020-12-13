@@ -32,11 +32,9 @@
   <%= render 'comments/comment', comment: comment %>
 <% end %>
 
-<%= link_to 'Add rating', new_howtodo_rating_path(howtodo_id: @howtodo.id), class: 'btn btn-primary' %>
 <% @ratings.each do |rating| %>
   <p><%= rating.rate %> rated by: <%= rating.user.email %></p>
 <% end %>
 
 <%= rate_button(@howtodo)%>
 
-<%= render 'howtodos/howtodo', howtodo: @howtodo %>
