@@ -1,5 +1,5 @@
 class Howtodo < ApplicationRecord
-    validates :title,  presence: true
+    validates :title,  presence: true, uniqueness: true
     validates :description, presence: true, length: { :minimum => 5 }
     def to_s
         title

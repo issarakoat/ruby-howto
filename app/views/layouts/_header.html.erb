@@ -17,25 +17,43 @@
             Home
           <% end %>
         </li>
-        <li class="<%= 'active font-weight-bold' if current_page?(home_activity_path) %> nav-item">
-          <%= link_to home_activity_path, class: 'nav-link' do %>
-            <div class="fa fa-bell"></div>
-            Activities
-          <% end %>
-        </li>
         <li class="<%= 'active font-weight-bold' if current_page?(new_howtodo_path) %> nav-item">
           <%= link_to new_howtodo_path, class: 'nav-link' do %>
             <div class="fa fa-plus"></div>
             New HowTo
           <% end %>
-      </li>
-        <li class="<%= 'active font-weight-bold' if current_page?(users_path) %> nav-item">
-        <%= link_to users_path, class: 'nav-link' do %>
-          <div class="fa fa-users">
-            Users
-          </div>
-        <% end %>
         </li>
+        
+        
+        <% if current_user.has_role?(:admin) || current_user.has_role?(:super)  %>
+            <li class="nav-item dropdown">
+              <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="adminDropdown" role="button">
+                <div class="fa fa-cog"></div>
+                Admin
+              </a>
+              <div aria-labelledby="adminDropdown" class="dropdown-menu dropdown-menu-right">
+                <%= link_to users_path, class: "dropdown-item" do %>
+                  <div class="fa fa-users"></div>
+                  Users
+                  <div class="badge badge-danger">
+                    <%= User.count %>
+                  </div>
+                <% end %>
+                <%= link_to howtodos_path, class: "dropdown-item" do %>
+                  <div class="fa fa-lock-open"></div>
+                  Howtodos
+                  <div class="badge badge-danger">
+                    <%= Howtodo.count %>
+                  </div>
+                <% end %>
+                <%= link_to home_activity_path, class: "dropdown-item" do %>
+                  <div class="fa fa-bell"></div>
+                  Activities
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+
 
       </ul>
       <div class="form-inline my-2 my-lg-0">
