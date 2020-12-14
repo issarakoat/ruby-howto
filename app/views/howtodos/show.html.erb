@@ -20,6 +20,17 @@
   <strong>Create by:</strong>
   <%= @howtodo.user.email %>
 </p>
+
+
+
+<div class="text-warning fa fa-star"></div>
+<b>
+  <%= @howtodo.average_rating %>
+</b>
+<br>
+
+
+
 <%= link_to 'Edit |', edit_howtodo_path(@howtodo) if policy(@howtodo).edit? %> 
 <%= link_to 'Back', howtodos_path %>
 <p>Comment count: <%= @howtodo.comments.count %></p>

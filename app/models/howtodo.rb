@@ -15,4 +15,12 @@ class Howtodo < ApplicationRecord
     
     include PublicActivity::Model
     tracked owner: Proc.new{ |controller, model| controller.current_user }
+    
+    def update_rating
+        if ratings.any? && ratings.where.not(rate: nil).any?
+          update_column :average_rating, (ratings.average(:rate).round(2).to_f)
+        else
+          update_column :average_rating, (0)
+        end
+    end
 end
