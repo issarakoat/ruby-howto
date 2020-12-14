@@ -14,33 +14,34 @@
     </div>
   </div>
 </h3>
-<p></p>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @howtodos.each do |howtodo| %>
-      <tr>
-        <td><%= link_to howtodo.title, howtodo %></td>
-        <td><%= howtodo.description %></td>
-        <td><%= howtodo.user.email %></td>
-        
-        <% if policy(howtodo).edit? %>
-          <td><%= link_to 'Edit', edit_howtodo_path(howtodo) %></td>
-          <td><%= link_to 'Destroy', howtodo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-2">
+<%= search_form_for @ransack_howtodos, as: :howtodos_search, url: @ransack_path do |f| %>
+  <%= f.label :title %>
+  <%= f.search_field :title_cont, placeholder: 'Title', class: 'form-control form-control-sm' %>
+  <%= f.label :Creator %>
+  <%= f.search_field :user_email_cont, placeholder: 'Email', class: 'form-control form-control-sm' %>
+  <div class="row"></div>
+  <%= sort_link(@ransack_howtodos, :average_rating, "Top Rated") %>
+  <div class="row"></div>
+  <%= sort_link(@ransack_howtodos, :ratings_count, "Most Popular") %>
+  <div class="row"></div>
+  <%= sort_link(@ransack_howtodos, :created_at, "Fresh") %>
+  <div class="row"></div>
+  <%= f.submit %>
+<% end %>
+  </div>
+  <div class="col-md-10">
+    <div class="card-columns">
+      <% @howtodos.each do |howtodo| %>
+        <%= render 'howtodos/howtodo', howtodo: howtodo %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
 <%= raw(pagy_bootstrap_nav(@pagy)) %>
 
 <br>
-
