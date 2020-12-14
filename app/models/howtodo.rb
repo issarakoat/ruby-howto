@@ -6,7 +6,8 @@ class Howtodo < ApplicationRecord
     end
     has_rich_text :description
     
-    belongs_to :user
+    belongs_to :user, counter_cache: true
+    #User.find_each { |user| User.reset_counters(user.id, :howtodos) }  
     has_many :comments, dependent: :destroy
     has_many :ratings, dependent: :destroy
     

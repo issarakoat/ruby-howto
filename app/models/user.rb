@@ -15,7 +15,7 @@ class User < ApplicationRecord
   
   has_many :howtodos
   has_many :comments
-  has_many :rating
+  has_many :ratings
   
   extend FriendlyId
   friendly_id :email, use: :slugged

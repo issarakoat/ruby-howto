@@ -42,6 +42,18 @@
       <th>
         <%= 'last_sign_in_ip'.humanize %>
       </th>
+      <th>
+       
+      </th>
+      <th>
+        Howtodo count
+      </th>
+      <th>
+        comment count
+      </th>
+      <th>
+        rating count
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -79,6 +91,15 @@
         </td>
         <td>
           <%= user.last_sign_in_ip %>
+        </td>
+        <td>
+          <%= user.howtodos_count %>
+        </td>
+        <td>
+          <%= user.comments_count %>
+        </td>
+        <td>
+          <%= user.ratings_count %>
         </td>
       </tr>
     <% end %>

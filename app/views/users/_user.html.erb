@@ -38,6 +38,21 @@
       <%= 'last_sign_in_ip'.humanize + ":" %>
     </b>
     <%= user.last_sign_in_ip %>
+    <div class="row"></div>
+    <b>
+      Howtodos created
+    </b>
+    <%= user.howtodos_count %>
+    <div class="row"></div>
+    <b>
+      Comments created
+    </b>
+    <%= user.comments_count %>
+    <div class="row"></div>
+    <b>
+      Rating created
+    </b>
+    <%= user.ratings_count %>
   </div>
   <div class="card-footer">
     <% user.roles.each do |role| %>
