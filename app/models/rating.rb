@@ -1,6 +1,7 @@
 class Rating < ApplicationRecord
   belongs_to :user
-  belongs_to :howtodo
+  belongs_to :howtodo, counter_cache: true
+  #Howtodo.find_each { |howtodo| Howtodo.reset_counters(howtodo.id, :ratings) }  
     
   include PublicActivity::Model
   tracked owner: Proc.new{ |controller, model| controller.current_user }
