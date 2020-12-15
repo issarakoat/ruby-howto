@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
   def index
     @howtodos = Howtodo.all.limit(3)
-    @latest_howtodos = Howtodo.all.limit(3).order(created_at: :desc)
-    
-    @top_rated_howtodos = Howtodo.order(average_rating: :desc, created_at: :desc).limit(3)
-    @popular_howtodos = Howtodo.order(comments_count: :desc, created_at: :desc).limit(3)
+    #using scope
+    @latest = Howtodo.latest
+    @top_rated_howtodos = Howtodo.top_rated_howtodos
+    @popular_howtodos = Howtodo.popular_howtodos
   end
   def activity
     @activities = PublicActivity::Activity.all

@@ -50,7 +50,7 @@
 <hr/>
 <h2>
   <div class="fa fa-chart-line"></div>
-  Popular Howtodos
+  Popular Howtodos (most comments)
 </h2>
 <div class="card-columns">
   <% @popular_howtodos.each do |howtodo| %>
@@ -64,7 +64,7 @@
   Latest Howtodos
 </h2>
 <div class="card-columns">
-  <% @latest_howtodos.each do |howtodo| %>
+  <% @latest.each do |howtodo| %>
     <%= render 'howtodos/howtodo', howtodo: howtodo %>
   <% end %>
 </div>
