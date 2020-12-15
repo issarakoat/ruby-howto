@@ -6,9 +6,10 @@
   Comments created per day
 </h4>
 <%= column_chart @comments.group_by_day(:created_at).count %>
-<!--<h4 class="text-center">-->
-<!--  Course popularity-->
-<!--</h4>-->
+<h4 class="text-center">
+  Ratings created per day
+</h4>
+<%= column_chart @ratings.group_by_day(:created_at).count %>
 <!--= pie_chart @courses.group(:enrollments_count).count
 -->
 <!--= pie_chart @enrollments.joins(:course).group(:'courses.title').count
