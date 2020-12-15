@@ -1,5 +1,17 @@
 <div class="card">
   <div class="card-header">
+    
+    
+    <% if howtodo.viewed(current_user) == true %>
+      <div class="text-success far fa-check-square"></div>
+      <!--VIEWED
+      -->
+    <% else %>
+      <div class="text-danger far fa-check-square"></div>
+    <% end %>
+        
+    
+    
     <div class="fa fa-graduation-cap"></div>
     <%= link_to howtodo.title, howtodo_path(howtodo) %>
   </div>

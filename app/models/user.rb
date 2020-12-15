@@ -9,6 +9,13 @@ class User < ApplicationRecord
   def to_s
     email
   end
+  
+  def view_howtodo(howtodo)
+    unless self.user_howtodos.where(howtodo: howtodo).any?
+      self.user_howtodos.create(howtodo: howtodo)
+    end
+  end
+  
   def username
     self.email.split(/@/).first
   end
@@ -16,6 +23,7 @@ class User < ApplicationRecord
   has_many :howtodos
   has_many :comments
   has_many :ratings
+  has_many :user_howtodos
   
   extend FriendlyId
   friendly_id :email, use: :slugged

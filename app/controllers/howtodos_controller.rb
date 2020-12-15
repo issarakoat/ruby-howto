@@ -22,6 +22,7 @@ class HowtodosController < ApplicationController
   def show
     @comments = @howtodo.comments
     @ratings  = @howtodo.ratings
+    current_user.view_howtodo(@howtodo)
   end
 
   # GET /howtodos/new

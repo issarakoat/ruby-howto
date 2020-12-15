@@ -14,6 +14,7 @@ class Howtodo < ApplicationRecord
     #User.find_each { |user| User.reset_counters(user.id, :howtodos) }  
     has_many :comments, dependent: :destroy
     has_many :ratings, dependent: :destroy
+    has_many :user_howtodos
     
     extend FriendlyId
     friendly_id :title, use: :slugged
@@ -27,5 +28,10 @@ class Howtodo < ApplicationRecord
         else
           update_column :average_rating, (0)
         end
+    end
+    
+    def viewed(user)
+        self.user_howtodos.where(user: user).present?
+        #self.user_lessons.where(user_id: [user.id], lesson_id: [self.id]).empty?
     end
 end
