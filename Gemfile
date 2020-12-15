@@ -40,3 +40,5 @@ gem "rolify"
 gem "pundit"
 gem 'pagy'
 gem 'ransack'
+gem "chartkick"
+gem 'groupdate'

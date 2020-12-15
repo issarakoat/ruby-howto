@@ -1,0 +1,15 @@
+<h4 class="text-center">
+  Users created per day
+</h4>
+<%= line_chart @users.group_by_day(:created_at).count %>
+<h4 class="text-center">
+  Comments created per day
+</h4>
+<%= column_chart @comments.group_by_day(:created_at).count %>
+<!--<h4 class="text-center">-->
+<!--  Course popularity-->
+<!--</h4>-->
+<!--= pie_chart @courses.group(:enrollments_count).count
+-->
+<!--= pie_chart @enrollments.joins(:course).group(:'courses.title').count
+-->

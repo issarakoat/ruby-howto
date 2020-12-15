@@ -14,7 +14,7 @@ class Howtodo < ApplicationRecord
     #User.find_each { |user| User.reset_counters(user.id, :howtodos) }  
     has_many :comments, dependent: :destroy
     has_many :ratings, dependent: :destroy
-    has_many :user_howtodos
+    has_many :user_howtodos, dependent: :destroy
     
     extend FriendlyId
     friendly_id :title, use: :slugged

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'home/index'
   get 'home/activity'
+  get 'analytics', to: 'home#analytics'
   devise_for :users
   resources :howtodos do
     resources :comments

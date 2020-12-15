@@ -20,3 +20,6 @@ import 'bootstrap/dist/css/bootstrap'
 import "@fortawesome/fontawesome-free/css/all"
 require("trix")
 require("@rails/actiontext")
+
+require("chartkick")
+require("chart.js")

@@ -20,9 +20,9 @@ class User < ApplicationRecord
     self.email.split(/@/).first
   end
   
-  has_many :howtodos
-  has_many :comments
-  has_many :ratings
+  has_many :howtodos, dependent: :nullify
+  has_many :comments, dependent: :nullify
+  has_many :ratings, dependent: :nullify
   has_many :user_howtodos
   
   extend FriendlyId
