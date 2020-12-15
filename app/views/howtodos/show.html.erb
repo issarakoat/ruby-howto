@@ -35,6 +35,14 @@
 <%= link_to 'Back', howtodos_path %>
 <p>Comment count: <%= @howtodo.comments.count %></p>
 
+<h4>
+  <div class="fa fa-comments"></div>
+  <%= pluralize(@howtodo.comments_count, 'comment') %>
+</h4>
+<h4>
+  <div class="fa fa-chart-line"></div>
+  <%= pluralize(@howtodo.ratings_count, 'rating') %>
+</h4>
 <br>
 
 <%= link_to 'Add comment', new_howtodo_comment_path(howtodo_id: @howtodo.id), class: 'btn btn-primary' %>
@@ -43,9 +51,9 @@
   <%= render 'comments/comment', comment: comment %>
 <% end %>
 
-<% @ratings.each do |rating| %>
-  <p><%= rating.rate %> rated by: <%= rating.user.email %></p>
-<% end %>
+<!--<% @ratings.each do |rating| %>-->
+<!--  <p><%= rating.rate %> rated by: <%= rating.user.email %></p>-->
+<!--<% end %>-->
 
 <%= rate_button(@howtodo)%>
 
