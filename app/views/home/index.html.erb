@@ -39,24 +39,28 @@
 </div>
 <hr/>
 <h2>
-  Popular Howtodos
-</h2>
-<div class="card-columns">
-  <% @howtodos.each do |howtodo| %>
-    <%= render 'howtodos/howtodo', howtodo: howtodo %>
-  <% end %>
-</div>
-<hr/>
-<h2>
+  <div class="fa fa-star"></div>
   Top rated Howtodos
 </h2>
 <div class="card-columns">
-  <% @howtodos.each do |howtodo| %>
+  <% @top_rated_howtodos.each do |howtodo| %>
     <%= render 'howtodos/howtodo', howtodo: howtodo %>
   <% end %>
 </div>
 <hr/>
 <h2>
+  <div class="fa fa-chart-line"></div>
+  Popular Howtodos
+</h2>
+<div class="card-columns">
+  <% @popular_howtodos.each do |howtodo| %>
+    <%= render 'howtodos/howtodo', howtodo: howtodo %>
+  <% end %>
+</div>
+<hr/>
+
+<h2>
+  <div class="fa fa-clock"></div>
   Latest Howtodos
 </h2>
 <div class="card-columns">
