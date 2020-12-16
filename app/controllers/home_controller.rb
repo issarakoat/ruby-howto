@@ -18,9 +18,9 @@ class HomeController < ApplicationController
  
   def analytics
     if current_user.has_role?(:admin) || current_user.has_role?(:super)
-      @users = User.all
-      @comments = Comment.all
-      @ratings = Rating.all
+      # @users = User.all
+      # @comments = Comment.all
+      # @ratings = Rating.all
     else
       redirect_to root_path, alert: "You are not authorized to access this page"
     end
